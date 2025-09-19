@@ -36,13 +36,8 @@ header p {
   margin: 0 auto;
 }
 
-/* Timeline Wrapper */
-.timeline-wrapper {
-  position: relative;
-}
-
 /* Timeline Section */
-section {
+.timeline-section {
   display: flex;
   overflow-x: auto;
   padding: 2rem;
@@ -52,8 +47,7 @@ section {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Cards */
-section > div {
+.timeline-section > div {
   background-color: white;
   border-left: 5px solid #003366;
   padding: 1rem;
@@ -65,11 +59,10 @@ section > div {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
   position: relative;
-  overflow: hidden; /* prevent images from overflowing */
+  overflow: hidden;
 }
 
-/* Left border glow using pseudo-element */
-section > div::before {
+.timeline-section > div::before {
   content: '';
   position: absolute;
   left: 0;
@@ -83,35 +76,32 @@ section > div::before {
   z-index: 2;
 }
 
-/* Hover effects */
-section > div:hover {
+.timeline-section > div:hover {
   transform: translateY(-8px) scale(1.06) rotateZ(-0.5deg);
   box-shadow: 0 12px 20px rgba(0,0,0,0.25);
   filter: brightness(1.05);
   z-index: 5;
 }
 
-section > div:hover::before {
+.timeline-section > div:hover::before {
   opacity: 1;
 }
 
-/* Card Titles */
-section h2 {
+.timeline-section h2 {
   font-size: 1.5rem;
   color: #003366;
 }
 
-section h3 {
+.timeline-section h3 {
   font-size: 1.2rem;
   margin: 0.5rem 0;
 }
 
-section p {
+.timeline-section p {
   font-size: 0.95rem;
 }
 
-/* Hidden Details inside cards */
-section > div .details {
+.timeline-section > div .details {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -121,22 +111,21 @@ section > div .details {
   color: #555;
 }
 
-section > div:hover .details {
+.timeline-section > div:hover .details {
   max-height: 200px;
   opacity: 1;
 }
 
-/* Card Images at bottom */
-section > div .card-img {
+.timeline-section > div .card-img {
   width: 100%;
   height: auto;
   margin-top: 1rem;
   border-radius: 5px;
   object-fit: cover;
-  transition: filter 0.3s ease; /* subtle effect without scaling */
+  transition: filter 0.3s ease;
 }
 
-section > div:hover .card-img {
+.timeline-section > div:hover .card-img {
   filter: brightness(1.05);
 }
 
@@ -170,63 +159,58 @@ section > div:hover .card-img {
   right: 10px;
 }
 
-/* Custom Scrollbar */
-section::-webkit-scrollbar {
+.timeline-section::-webkit-scrollbar {
   height: 8px;
 }
 
-section::-webkit-scrollbar-track {
+.timeline-section::-webkit-scrollbar-track {
   background: #e0e0e0;
   border-radius: 10px;
 }
 
-section::-webkit-scrollbar-thumb {
+.timeline-section::-webkit-scrollbar-thumb {
   background: #005999;
   border-radius: 10px;
 }
 
-section::-webkit-scrollbar-thumb:hover {
+.timeline-section::-webkit-scrollbar-thumb:hover {
   background: #003366;
 }
 
-/* Footer Note */
-body > p.center-text {
+/* Centered Footer Note */
+.center-text {
   text-align: center;
   font-style: italic;
   margin: 1rem;
 }
 
-/* Three-Column Squares */
+/* Three-Column Section */
 .three-columns {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
   padding: 2rem;
-  flex-wrap: wrap;
 }
 
 .three-columns .col {
   background-color: white;
-  border-radius: 8px;
   padding: 1rem;
-  width: 300px;
-  height: 300px;
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-.three-columns .col:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+.three-columns .col i {
+  color: #005999;
+  margin-bottom: 0.5rem;
 }
 
 .three-columns .col a {
-  margin-top: auto;
+  display: inline-block;
+  margin-top: 0.5rem;
   color: #005999;
   text-decoration: none;
   font-weight: bold;
@@ -240,41 +224,36 @@ body > p.center-text {
 .subscription {
   text-align: center;
   padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center content */
 }
 
-.subscription h2 {
-  margin-bottom: 1rem;
-}
-
-.subscription form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.subscription input {
-  padding: 0.5rem 1rem;
+.subscription input[type="email"] {
+  padding: 0.5rem;
   width: 250px;
   max-width: 90%;
-  border-radius: 4px;
+  margin-right: 0.5rem;
+  border-radius: 5px;
   border: 1px solid #ccc;
 }
 
 .subscription button {
   padding: 0.5rem 1rem;
-  border-radius: 4px;
-  border: none;
   background-color: #005999;
   color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
 .subscription button:hover {
   background-color: #003366;
+}
+
+/* Accordion Section */
+.accordion-section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* Footer */
@@ -287,11 +266,11 @@ footer {
 
 footer ul {
   list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
-  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 footer ul li a {
@@ -304,14 +283,8 @@ footer ul li a:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 1000px) {
-  .three-columns {
-    justify-content: center;
-  }
-}
-
 @media (max-width: 768px) {
-  section {
+  .timeline-section {
     flex-direction: column;
     overflow-x: hidden;
     padding: 1rem;
@@ -321,7 +294,7 @@ footer ul li a:hover {
     display: none;
   }
 
-  section > div {
+  .timeline-section > div {
     max-width: 100%;
     min-width: auto;
     scroll-snap-align: none;
@@ -332,17 +305,8 @@ footer ul li a:hover {
     align-items: center;
   }
 
-  .accordion-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centers accordion horizontally */
-  margin: 2rem auto;
-  text-align: center;
-}
-
-.accordion-wrapper {
-  width: 100%;
-  max-width: 900px; /* sets max width of accordion */
-}
-
+  .three-columns .col {
+    max-width: 90%;
+    margin-bottom: 1rem;
+  }
 }
